@@ -1,1 +1,1 @@
-# organize-photos
+# Picture Organizer
