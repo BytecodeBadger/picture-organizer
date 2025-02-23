@@ -36,6 +36,8 @@ def organize_files(src_folder, dest_folder):
     if not os.path.exists(dest_folder):
         os.makedirs(dest_folder)
 
+    files_skipped = []
+
     for root, dirs, files in os.walk(src_folder):
         for file in files:
             if file.lower().endswith((".jpg", ".jpeg", ".mp4", ".png")):
@@ -68,8 +70,9 @@ def organize_files(src_folder, dest_folder):
                 shutil.copy2(src_path, dest_path)
                 print(f"Copied {src_path} to {dest_path}")
             else:
+                files_skipped.append(file)
                 print(f"Skipping {file} as it is not a JPEG or MP4 file****************************************************************")
-
+    print(f"Skipped files: {files_skipped}")
 
 # Check if source and destination folder paths are provided as arguments
 if len(sys.argv) == 3:
