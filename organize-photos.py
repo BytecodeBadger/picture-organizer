@@ -57,6 +57,8 @@ def organize_files(src_folder, dest_folder):
 
                 shutil.copy2(src_path, dest_path)
                 print(f"Copied {src_path} to {dest_path}")
+            else:
+                print(f"Skipping {file} as it is not a JPEG or MP4 file")
 
 
 # Check if source and destination folder paths are provided as arguments
